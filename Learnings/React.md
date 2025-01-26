@@ -224,4 +224,21 @@
       }
   ```
 ### Reusable Components
+  1. **Modularity** : Components are modular, allowing for easy reuse across different parts of the applications.
+  2. **Consistency** : Reusing components ensures UI consistency and reduces the chances of discrepancies.
+  3. **Efficiency** : Reduces development time and effort by avoiding duplication of code.
+  4, **Maintainability** : Changes made to a reused component reflect everywhere it is used, simplifying updates and bug fixes.
+
+## Including Bootstrap
+1. Responsive : Mobile first design for all device sizes.
+2. Components : Pre-styled elements like buttons and navbars.
+3. Customizable : Modify default styles as needed.
+4. Cross-Browser : Consistent look across browsers.
+5. Open-Source : Free with community support.
+  ```bash
+    $ npm i bootstrap@5.3.3
+  ```
+  ```jsx
+    import "bootstrap/dist/css/bootstrap.min.css";
+  ```
 
