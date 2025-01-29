@@ -125,11 +125,11 @@
   - **Babeljs.io/repl** is a tool that allows you to see how JSX is transformed into JavaScript.
     [HTML-to-JSX-Conversion](https://babeljs.io/repl#?browsers=defaults%2C%20not%20ie%2011%2C%20not%20ie_mob%2011&build=&builtIns=false&corejs=3.21&spec=false&loose=false&code_lz=AQ0HgCwRgPgQQA4OAYQPYFsFoHYFMcAXMAemhgCgg&debug=false&forceAllTransforms=false&modules=false&shippedProposals=false&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=env%2Creact%2Cstage-2&prettier=false&targets=&version=7.26.7&externalPlugins=&assumptions=%7B%7D "HTML-to-JSX-Conversion") 
 ### Exporting Component
-  - At first the index.html file is opened.
-    - There are two statements defined inside the index.html file
-      ```html
-        <!doctype html>
-        <html lang="en">
+  - At first the index.HTML file is opened.
+    - There are two statements defined inside the index.HTML file
+      ```HTML
+        <!doctype HTML>
+        <HTML lang="en">
           <head>
             <meta charset="UTF-8" />
             <link rel="icon" type="image/svg+xml" href="/vite.svg" />
@@ -140,7 +140,7 @@
             <div id="root"></div>
             <script type="module" src="/src/main.jsx"></script>
           </body>
-        </html>
+        </HTML>
       ```
     - Initially we get only two dependencies 
       ```json
@@ -231,7 +231,7 @@
 
 ## Including Bootstrap
 1. Responsive : Mobile first design for all device sizes.
-2. Components : Pre-styled elements like buttons and navbars.
+2. Components : Pre-styled elements like buttons and nav bars.
 3. Customizable : Modify default styles as needed.
 4. Cross-Browser : Consistent look across browsers.
 5. Open-Source : Free with community support.
@@ -241,4 +241,213 @@
   ```jsx
     import "bootstrap/dist/css/bootstrap.min.css";
   ```
+**Note** 
+  ```jsx
+    function Demo=()=>{
 
+      return <>
+      // These are called as react fragements.
+      </>;
+    }
+  ```
+- Each row is divided into 12 columns and using which we can first assign the parent HTML element "row" class and then inside it if we assign the "col-8" to the HTML element then that row will occupy the 8 column size.
+- Never override the bootstrap classes instead make new classes and then do styling.
+
+## Fragements 
+### What ?
+  - Allows grouping of multiple elements without extra DOM nodes.
+### Why ?
+  - Return multiple element without a wrapping parent component.
+  - Cleaner DOM and consistent styling.
+### How ?
+  ```jsx
+      import React from 'react';
+        function App() {
+      return (
+          <React.Fragement>
+            <div>
+              <h1>Healthy Food</h1>
+              <ul className="list-group">
+                <li className="list-group-item">Banana</li>
+                <li className="list-group-item">Apple</li>
+                <li className="list-group-item">Dal Khichdi</li>
+                <li className="list-group-item">Nutrella</li>
+                <li className="list-group-item">Egg</li>
+              </ul>
+            </div>
+          </React.Fragement>
+        )
+      }
+
+      export default App
+
+  ```
+  ```jsx
+      1. <React.Fragement></React.Fragement>
+      
+      function App() {
+      return (
+          <>
+            <div>
+              <h1>Healthy Food</h1>
+              <ul className="list-group">
+                <li className="list-group-item">Banana</li>
+                <li className="list-group-item">Apple</li>
+                <li className="list-group-item">Dal Khichdi</li>
+                <li className="list-group-item">Nutrella</li>
+                <li className="list-group-item">Egg</li>
+              </ul>
+            </div>
+          </>
+        )
+      }
+
+      export default App
+
+  ```
+## Map method
+  - **Purpose** : Renders list from array data.
+  - **JSX Elements** : Transform array elements into JSX Elements.
+  - **Inline Rendering** : Directly inside JSX 
+    ```jsx
+      function Demo(){
+        let arr=['item-1','item-2','item-3','item-4','item-5'];
+        return(
+        <ul> 
+          arr.map((item)=>{
+            return <li key={item}>{item}</li>; 
+          })
+        </ul>
+        )
+        }
+      
+    ```
+  - **Key Prop** : Assign unique key for optimized re-renders.
+    ```jsx
+      <div key={item.id}>{item.name}</div>
+    ```
+## Conditional Rendering
+  - **Conditional Rendering** 
+    - Displaying content based on certain conditions.
+    - Allows for dynamic user interfaces.
+  - **Methods**
+    - **if-else statements** : Choose between two blocks of content.
+    - **Ternary Operators** : Quick way to choose between two options.
+    - **Logical operators** : Useful for rendering content when a condition is true.
+  - **Benefits**
+    - Enhances user experience.
+    - Reduces unnecessary rendering.
+    - Makes app more experience and interactive.
+    ```jsx
+          function App() {
+          // let arr=[];
+          let arr=['Banana','Apple','Dal Khicdi','Nutrella','Egg','Almonds'];
+          let emptyMessage=arr.length!==0?<h1>Food list : </h1>:null;
+          return (
+            <>
+              <div>
+                <h1>Healthy Food</h1>
+                {emptyMessage}
+                <ul className="list-group">
+                {arr.length!==0 && arr.map((item)=>{
+                  return <li className="list-group-item" key={item}>{item}</li>
+                })}
+                </ul>
+              </div>
+            </>
+          )
+        }
+        export default App
+    ```
+## Passing Data via Props
+### Props in React
+  - Short for properties.
+  - Mechanism for passing data.
+  - Read only by default.
+### Usage
+  - Pass data from parent to child component.
+  - Makes component reusable.
+  - Defined as attribute in JSX.
+### Key points 
+  - Data flows one-way (downwards)
+  - Props are immutable
+  - Used for communication between components.
+- Never make not required very small components.
+  ```jsx
+      import ErrorMessage from "./components/ErrorMessage";
+      import FoodItems from "./components/FoodItems";
+
+      function App() {
+       let foodItems=['Avacado','Apple','Dal Khicdi','Nutrella','Egg','Almonds'];
+        return (
+          <>
+            <div>
+              <h1>Healthy Food</h1>
+              <ErrorMessage items={foodItems}/>
+              <FoodItems items={foodItems}/>
+            </div>
+          </>
+        )
+      }
+
+      export default App
+  ```
+  ```jsx
+      import Item from "./Item"
+
+      const FoodItems = ({items}) => {
+      
+        return (
+          <ul className="list-group">
+              {items.length!==0 && items.map((item)=>{
+                return <Item  key={item} foodItem={item} />
+              })}
+              </ul>
+        )
+      }
+
+      export default FoodItems
+  ```
+## CSS Modules
+  1. Localized class name to avoid global conflicts.
+  2. Styles are scoped to individual components.
+  3. Helps in creating component-specific styles.
+  4. Automatically generates unique class names.
+  5. Promotes modular and maintainable CSS.
+  6. Can use alongside global CSS when needed.
+  - Basically to provide the component specific styles with name defined by you but later on css modules compiler will give its own name.
+  - The scope of the css is limited to the single component.
+  - The name of the css file for a component like Item.jsx will be Item.module.css.
+  - By including the module extension in between it makes the build tool and react understand that we are using the css module.
+  ```jsx
+      import styles from "./Item.module.css";
+      const Item = ({foodItem}) => {
+      
+        return (
+      <li className={`${styles['kg-item']} list-group-items`}><span className={styles['kg-span']}>{foodItem}</span></li>
+        )
+      }
+
+      export default Item
+  ```
+  - Always try to do the styling using the modular approach. So that it will not become cumbersome while debugging styling.
+- Instead of passing classes as props use global css.
+- Always try to utilize the css modules.
+
+## Passing Children
+  1. children is a special prop for passing elements into components.
+  2. Used for flexible and reusable component design.
+  3. Common in layout or container components.
+  4. Accessed with props.children.
+  5. Can be any content : string , numbers, JSX, or components.
+  6. Enhances component composability and reusability.
+  - Usually for card or components.
+
+## Handling Events
+  - React events use camelCase, e.g., onClick.
+  - Uses synthetic events, not direct browser events.
+  - Event handlers can be functions or arrow functions.
+  - Use onChange for controlled form inputs.
+  - Avoid inline arrow functions in JSX for performance.
+- Since, React is not limited or specific to any browser so that means internally it converts the event object into the synthetic event. 
+5::20
