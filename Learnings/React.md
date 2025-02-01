@@ -450,4 +450,35 @@
   - Use onChange for controlled form inputs.
   - Avoid inline arrow functions in JSX for performance.
 - Since, React is not limited or specific to any browser so that means internally it converts the event object into the synthetic event. 
-5::20
+
+## Passing function via props
+  - Pass dynamic behavior between components.
+  - Enables upward communication from child to parent.
+  - Commonly used for event handling.
+  - Parent defines a function and child invokes it.
+  - Enhances component interactivity.
+
+## Managing State
+  - State represents data that changes over time.
+  - State is local and private to component.
+  - State changes cause the component to re-render.
+  - For functional component, use the useState() hook.
+  - React component that starts with use are called as react hooks.
+  - Hooks should only be used inside the component.
+  - Parent components can pass state down to children via props.
+  - Lifting the state up : share the state between components by moving it to their closest common ancestors.
+  - Hooks are special type of component which we can also make. Every hook must start with use keyword.
+  ## State vs Props
+  ### State
+    - Local and mutable data within a compoenent.
+    - Initialized within the component.
+    - Can change overtime.
+    - Causes re-render when updated.
+    - Managed using useState in functional component.
+  ### Props
+    - Passed into a component from its parent.
+    - Read only (immutable) within the recieving component.
+    - Allow parent-to-child component communication.
+    - Changes in props can also cause a re-render.
+  - **eval()** method takes parameter as expression in the form of string and calculate and return the result.
+  
