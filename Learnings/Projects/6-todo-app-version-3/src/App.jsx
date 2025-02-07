@@ -20,16 +20,12 @@ const App = () => {
     })
   }
   const handleDeleteItem=(todoItemName)=>{
-    // setTodoItems((prevState)=>{
-    //   return prevState.filter((todoItem)=>{
-    //     todoItem.name===todoItemName
-    //   });
-    // })
-    const newTodoItems=todoItems.filter((items)=>{
-      return items.name!==todoItemName;
-    });
-    setTodoItems(newTodoItems);
-    console.log(todoItemName);
+    setTodoItems((prevState)=>{
+      return [...prevState.filter(item=>{
+          return item.name!==todoItemName;
+      })]
+    }
+  );
   }
 
   return (

@@ -482,3 +482,111 @@
     - Changes in props can also cause a re-render.
   - **eval()** method takes parameter as expression in the form of string and calculate and return the result.
   
+## React-Icon Library
+  - You can use a lot of icons without managing them.
+  - Install package
+  ```bash
+    npm install react-icons --save
+  ```
+  ```jsx
+  import {IconName} from "react-icons/fc";
+  ```
+## Inspecting with React Dev tools
+1. **Inspection** : Allows inspection of React components hierarchies.
+2. **State and Props** : View and edit the current state and props of components.
+3. **Performance** : Analyze component re-renders and performance bottlenecks.
+4. **Navigation** : Conveniently navigate through the entire component tree.
+5. **Filtering** : Filter component by name or source to locate them quickly.
+6. **Real-time Feedback** : See live changes as you modify state or props.
+
+## How React Works ?
+### React Component
+  - The App is the main or root component of a React application.
+  - It's the starting point of your React component tree.
+### Virtual DOM
+  - React creates an in-memory structure called the virtual DOM.
+  - Different from the actual browser DOM.
+  - It's a lightweight representation where each node stands for a component and its attributes.
+### Reconciliation  Process :
+  - When a component data changes, React updates the virtual DOM's state to mirror these changes.
+  - React than compares the current and previous versions of the virtual DOM.
+  - It identifies the specific nodes that need updating.
+  - Only these nodes are updated in the real browser DOM, making it efficient.
+- div tag is an non-semantic html element which is used only as container.
+### React and ReactDOM
+  - The actual updating of the browser's DOM isn't done by React itself.
+  - It is handled by companion library called react-dom.
+### Root Element
+  - The root div acts as a container for the React App.
+  - The script tag is where the React app starts executing.
+  - If you check main.jsx, the component tree is rendered inside this root element.
+### Strict Mode component
+  - It's special component in React.
+  - Doesn't have a visual representation.
+  - Its purpose is to spot potential issues in your React app.
+### Platform Independence 
+  - React's design allows it to be platform-agnostic.
+  - While react-dom helps build web UIs using React, ReactNative can be used to craft mobile app UIs.
+- ReactDOM is for web browsers and ReactNative is for mobile UI and thus React is platform independent i.e. not specific to any web browser or mobile UI.
+
+## React vs Angular vs Vue
+### React, Angular and Vue
+  - React is a library, while Vuew.js and Angular are frameworks.
+### Library vs Frameworks
+  - A library offers specific functionality.
+  - A framework provides set of tools and guidelines.
+  - In simple words, React is a tool and Angular , Vue are tool sets.
+### React's Specialty
+  - React's main role is crafting dynamic, interactive UIs.
+  - It doesn't handle routing, HTTP calls, state management and more.
+### React Flexibility
+  - React doesn't dictate tool choices for other app aspects.
+  - Developers pick what fits their projects best.
+### About Angular and Vue.js
+  - Angular, developed by Google, provides a robust framework with a steep learning curve.
+  - Vue.js is known for its simplicity and ease of integration, making it beginner-friendly.
+## Using Forms 
+  1. **State management** : Each input state is stored in the component's state.
+  2. **Handling Changes** : Use onChange to detect input changes.
+  3. **Submission** : Utilize onSubmit for form submissions and prevent default with event.preventDefault().
+  4. **Validation** : Implement custom validation or use third-party libraries.
+- Every button element inside the form element is by default is of type submit.
+## useRef
+  - useRef allows access to DOM elements and retains mutable values without re-renders.
+  - Used with the ref attribute for direct DOM interactions.
+  - Can hold previous state or prop values.
+  - Not limited to DOM references, can hold any value.
+  - Refs can be passed as props also.
+  - we use useState to retain value on re-rendering of component but when the state value changes the component also gets re-render again and to avoid this we use the useRef() hook where it will retain the value or state across different re-rendering of the component but on changing the useRef() variable the component will not re-render again.
+  - Instead of using the useState() hook and the onChange attribute in the jsx element and re-rendering the component again and again we can use the useRef() and store the references of html jsx element to avoid re-rendering.
+  - There is a ref attribute in every jsx html element which helps in connecting the ref attribute with the useRef() hook.
+## Update State from previous state
+  - **Spread Operator** : Use to maintain immutability when updating arrays or objects.
+  - **Functional Updates** : Use (existingPosts) => [postData,...existingPosts] to avoid stale values during asynchronous updates.
+## Context API
+1. **Prop Drilling** : Context API addresses prop drilling. Component composition is an alternative.
+2. **Folder Setup** : Use a store folder for context files.
+3. **Initialization** : Use React.createContext with initial state and export it.
+4. **Provider** : Implement with contextName.Provider in components.
+5. **Access Value** : Use the useContext Hook.
+6. **Dynamic Data** : Combine context value with state.
+7. **Export Functions** : Context can also export functions for actions.
+8. **Logic separation** : This helps keep the business logic and UI separate from each other.  
+- To avoid prop drilling among multiple components and reduce the complexities of the project we will be using the context API.
+- context api is common shared storage among all the components.
+## useReducer
+  1. **useReducer** is a hook in React that offers more control over state operations compared to useState, especially for complex state logic. 
+  2. **Components** : It involves two main components :
+    - **Reducer** : A pure function that takes the current state and an action and returns a new state.
+    - **Action** : An object describing what happened, typically having  a type property.
+  3. **Initialization** : It's involved as 
+    ```jsx
+      const [state,dispatch]=useReducer(reducer,initialState);
+    ```
+  4. **Dispatch** : Actions are dispatched using the dispatch function, which involves the reducer with the current state and the given action.
+
+  5. **Use Cases** : Particularly useful for managing state in large components or when the next state depends upon the previous one.
+  
+  6. **Predictable State Management** : Due to its structure, it leads to more predictable and maintainable state management.
+  
+   

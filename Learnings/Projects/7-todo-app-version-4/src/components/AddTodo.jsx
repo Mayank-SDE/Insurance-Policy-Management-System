@@ -1,11 +1,13 @@
-import { useRef} from "react";
+import { useContext, useRef} from "react";
 import { IoMdAdd } from "react-icons/io";
-
-/* eslint-disable react/prop-types */
-function AddTodo({handleNewItem}){
+import { TodoItemsContext } from "../store/todo-items-store";
+function AddTodo(){
  
   const todoNameElement=useRef();
   const todoDueDateElement=useRef();
+
+  const context=useContext(TodoItemsContext);
+  const addNewItem=context.addNewItem;
 
   const handleAddButton=(event)=>{
     event.preventDefault();
@@ -13,7 +15,7 @@ function AddTodo({handleNewItem}){
     const dueDate=todoDueDateElement.current.value;
     todoDueDateElement.current.value="";
     todoNameElement.current.value="";
-    handleNewItem(todoName,dueDate);
+    addNewItem(todoName,dueDate);
 
   }
 return  <form onSubmit={handleAddButton} className="row kg-row">
