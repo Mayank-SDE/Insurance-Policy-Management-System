@@ -605,3 +605,39 @@
 
   fetch("www.dummyjson.com/posts").then(response=>response.json).then((responseData)=>console.log(responseData));
   ```
+## useEffect hook 
+  - In function based components, useEffect handles side effects like data fetching or event listeners.
+  - useEffect runs automatically after every render by default.
+  - By providing a dependency array useEffect only runs when certain variables gets changes. An empty array means useEffect will run only once.
+  - Multiple useEffects can be used in a single component for organizing different side effects separately. 
+
+## Handling Loading State
+  - UI before the ui gets rendered
+## useEffect Hook Cleanup party
+  - Returning 
+## useCallback Hook
+
+## useMemo
+
+## react-router-dom
+## Layout routes
+## Outlet
+## Route Link
+### Link tag to avoid reloading
+### useNavigate tag to navigate through pages programmatically.
+## Data Fetching using loader
+## Submitting data using action
+
+## Redux
+  - State management for cross component app wide state.
+  - Redux is predictable state management library for JavaScript apps.
+  - Local State vs Cross component state vs App-wide state
+  - useState or useReducer vs useState with prop drilling vs useState or useContext or Redux
+  - By providing store access to the App component all the children of the App component will get the access to store.
+## React context vs Redux
+## Redux
+  1. REducer
+  2. Store
+  3. Subscriber
+  4. Action
+
