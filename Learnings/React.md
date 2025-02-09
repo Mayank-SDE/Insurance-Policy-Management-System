@@ -590,4 +590,18 @@
   6. **Predictable State Management** : Due to its structure, it leads to more predictable and maintainable state management.
 - Good project always separates the business logic and UI part.
 
-   
+## DUMMY_API
+  - Get dummy/fake json data to use as placeholder in development or in prototype testing.
+  - dummyjson.com
+## Data Fetching using Fetch
+  1. **Fetch** : Modern JavaScript API for network request.
+  2. **Promise-Based** : Returns a promise with a response object.
+  3. **Usage** : Default is GET. For post use "POST".
+  4. **Response** : Use .then() and response.json() for JSON data.
+  5. **Errors** : Doesn't reject on HTTP errors. Check response.ok.
+  6. **Headers** : Managed using the Headers API.
+
+  ```jsx
+
+  fetch("www.dummyjson.com/posts").then(response=>response.json).then((responseData)=>console.log(responseData));
+  ```

@@ -6,7 +6,6 @@ import { PostListContext } from '../store/post-list-store';
 import { useContext } from 'react';
 const Post = ({post}) => {
   const {deletePost}=useContext(PostListContext);
-
   return (
         <div  className="card post-card" style={{width: "30rem"}}>
   <div  className="card-body">
@@ -22,7 +21,7 @@ const Post = ({post}) => {
     return (<span key={tag} className="badge text-bg-primary hashtag">{tag}</span>
 )})}
     <div className="alert alert-success reactions" role="alert">
-    This post has been reacted by {post.reactions} people.
+    This post has been reacted by {post.reactions.likes+post.reactions.dislikes} people.
     </div>
   </div>
 </div>

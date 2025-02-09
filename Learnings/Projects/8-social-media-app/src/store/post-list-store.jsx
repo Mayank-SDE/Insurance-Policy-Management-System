@@ -5,23 +5,10 @@ import { createContext, useReducer } from "react";
 const DEFAULT_CONTEXT={
     postList:[],
     addPost:()=>{},
-    deletePost:()=>{}
+    deletePost:()=>{},
+    addInitialPost:()=>{}
 };
-const DEFAULT_POST_LIST=[{
-    id:1,
-    title:'Going to Mumbai',
-    body:'Hi Friends, I am going to Mumbai for my vacations. Hope to enjoy alot.',
-    reactions:5,
-    userId:'user-9',
-    tags:['vacation','mumbai','enjoy']
-},{
-    id:2,
-    title:'B-Tech Pass',
-    body:'Passed in B-Tech',
-    reactions:15,
-    userId:'user-12',
-    tags:['pass','b-tech','graduating']
-}];
+const DEFAULT_POST_LIST=[];
 export const PostListContext=createContext(DEFAULT_CONTEXT);
 const postListReducer=(state,action)=>{
     let newPostListState=[...state];
@@ -38,12 +25,24 @@ const postListReducer=(state,action)=>{
     }else if(action.type==="DELETE_POST")
     {
         newPostListState=newPostListState.filter(post=>post.id!==action.payload.postId);
+    }else if(action.type==='ADD_INITIAL_POST'){
+        const posts=[...action.payload.posts];
+        newPostListState=posts;
     }
     return newPostListState;
 }
 const PostListContextProvider=({children})=>{
 
     const [postList,dispatchPostlist]=useReducer(postListReducer,DEFAULT_POST_LIST);
+    const addInitialPost=(posts)=>{
+        dispatchPostlist({
+            type:"ADD_INITIAL_POST",
+            payload:{
+                posts
+            }
+          });
+         
+    }
     const addPost=(
         userId,
         postTitle,
@@ -63,7 +62,6 @@ const PostListContextProvider=({children})=>{
          
     }
     const deletePost=(id)=>{
-        console.log(id);
         dispatchPostlist({
             type:"DELETE_POST",
             payload:{
@@ -74,7 +72,8 @@ const PostListContextProvider=({children})=>{
     return <PostListContext.Provider value={{
         postList,
         addPost,
-        deletePost
+        deletePost,
+        addInitialPost
     }}>
         {children}
     </PostListContext.Provider>
