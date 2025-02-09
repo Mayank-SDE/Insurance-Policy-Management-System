@@ -588,5 +588,6 @@
   5. **Use Cases** : Particularly useful for managing state in large components or when the next state depends upon the previous one.
   
   6. **Predictable State Management** : Due to its structure, it leads to more predictable and maintainable state management.
-  
+- Good project always separates the business logic and UI part.
+
    
