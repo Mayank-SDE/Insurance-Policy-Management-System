@@ -636,8 +636,17 @@
   - By providing store access to the App component all the children of the App component will get the access to store.
 ## React context vs Redux
 ## Redux
-  1. REducer
+  1. Reducer
   2. Store
   3. Subscriber
   4. Action
 
+## React with Redux
+  ```bash
+      1. npm install redux
+      2. npm install react-redux
+      
+  ```
+## Why Redux Toolkit
+  - npm install @reduxjs/toolkit
+16:53
