@@ -649,4 +649,7 @@
   ```
 ## Why Redux Toolkit
   - npm install @reduxjs/toolkit
-16:53
+  - Remove redux from package.json
+  - Import {createSlice} from '@reduxjs/toolkit'
+  -  createStore was a problem and is deprecated.
+  
