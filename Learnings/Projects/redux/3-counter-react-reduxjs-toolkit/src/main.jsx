@@ -4,10 +4,10 @@ import {Provider} from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import App from './App.jsx'
-import counterStore from './store/index';
+import store from './store/index.js';
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Provider store={counterStore}>
+    <Provider store={store}>
     <App />
     </Provider>
   </StrictMode>,

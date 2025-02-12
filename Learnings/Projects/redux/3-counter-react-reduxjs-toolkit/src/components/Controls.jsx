@@ -1,30 +1,27 @@
 import { useRef } from "react";
 import { useDispatch } from "react-redux";
+import { decrement, decrementByValue, increment, incrementByValue } from "../store/counter";
+import { toggle } from "../store/privacy";
 
-/* eslint-disable react/no-unknown-property */
 const Controls = () => {
-    const dispatch=useDispatch();
     const inputRef=useRef();
-
+    const dispatch=useDispatch();
     const handleIncrement=()=>{
-        dispatch({type:"INCREMENT"});
+        dispatch(increment());
     }
     const handleDecrement=()=>{
-        dispatch({type:"DECREMENT"});
+        dispatch(decrement());
     }
     const handleAdd=()=>{
-        dispatch({type:"ADD",payload:{
-            value:inputRef.current.value
-        }});
+        dispatch(incrementByValue({value: +inputRef.current.value}));
     }
     const handleSubtract=()=>{
-        dispatch({type:"SUB",payload:{
-            value:inputRef.current.value
-        }});
+        dispatch(decrementByValue({value: +inputRef.current.value}));
     }
 
     const handlePrivacyToggle=()=>{
-        dispatch({type:"PRIVACY_TOGGLE"});
+        console.log("Clicked");
+        dispatch(toggle());
     }
 
   return (<>
